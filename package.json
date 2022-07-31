@@ -1,0 +1,26 @@
+{
+  "name": "phoenix_live_view_head",
+  "version": "0.1.0",
+  "description": "The Phoenix LiveView HTML HEAD maniputation JS lib.",
+  "license": "MIT",
+  "module": "./priv/static/phoenix_live_view_head.esm.js",
+  "main": "./priv/static/phoenix_live_view_head.cjs.js",
+  "unpkg": "./priv/static/phoenix_live_view_head.min.js",
+  "jsdelivr": "./priv/static/phoenix_live_view_head.min.js",
+  "exports": {
+    "import": "./priv/static/phoenix_live_view_head.esm.js",
+    "require": "./priv/static/phoenix_live_view_head.cjs.js"
+  },
+  "author": "Bart Otten <bart.otten85@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BartOtten/phoenix_live_view_head.git"
+  },
+  "files": [
+    "README.md",
+    "LICENSE.md",
+    "package.json",
+    "priv/static/*",
+    "assets/js/phoenix_live_view_head/*"
+  ]
+}

@@ -59,4 +59,4 @@ Result: The href becomes `images/messages_unread/favicon-32x32.png`.
 
 To return the favicon to it's default after the chat is closed simply call `Favicon.reset(socket)`.
 
-For all functions have a look at the documentation at [HexDocs](Phx.Live.Favicon.html)
+For all functions have a look at the documentation at [HexDocs](https://hexdocs.pm/phoenix_live_favicon/)

@@ -53,9 +53,9 @@ defmodule Phx.Live.Favicon do
   @doc """
   Remove an `attribute` from all favicon link elements
   """
-  @spec remove_attr(Socket.t(), attr, value) :: Socket.t()
-  def remove_attr(socket, attr, value) when is_binary(value),
-    do: Head.push(socket, "link[rel*='icon']", :set, attr, value)
+  @spec remove_attr(Socket.t(), attr) :: Socket.t()
+  def remove_attr(socket, attr),
+    do: Head.push(socket, "link[rel*='icon']", :remove, attr, "r")
 
   @doc """
   Reset an `attribute` to it's initial value on all favicon link elements

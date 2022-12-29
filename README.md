@@ -1,7 +1,7 @@
 # Phoenix Live Favicon
 
-  Provides commands for manipulating the Favicon of Phoenix Live View applications
-  while minimizing data over the wire.
+  Phoenix Live Favicon provides commands to manipulate the favicon(s) of
+  Phoenix Live View applications while minimizing data over the wire.
 
   The available command actions support a variety of utility operations useful for
   Favicon manipulation. Such as setting or removing tag attributes and
@@ -36,7 +36,7 @@ import "phoenix_live_head" // <-- ADD HERE.
 
 ## Usage
 Add one or multiple sizes of your favicon to your applications main template. It's
-attributes can be manipulated using the convenience functions from the [Phx.Live.Favicon module](Phx.Live.Favicon.html)
+attributes can be manipulated using the convenience functions from the [Phx.Live.Favicon module](https://hexdocs.pm/phoenix_live_favicon/Phx.Live.Favicon.html)
 
 
 ### Example

@@ -14,14 +14,15 @@ defmodule Phx.Live.Favicon do
   `document.querySelectorAll("link[rel*=icon]")`.
   """
 
-  @type attr :: atom() | binary()
-  @type variant :: String.t()
-  @type value :: String.t()
+  @type attr :: Head.attr()
+  @type variant :: Head.value()
+  @type value :: Head.value()
   @type class_name :: String.t()
-  @type key :: String.t()
+  @type name :: Head.name()
+  @type placeholder :: Head.name()
 
   @doc """
-  Set the value of the `{dynamic}` part of the `attribute` to `variant` on
+  Set the value of a `{placeholder}` part to `variant` on
   all favicon link elements
 
   ## Dynamic attributes
@@ -40,7 +41,7 @@ defmodule Phx.Live.Favicon do
   <link rel='icon' href="favs/new_message/fav-16x16.png">
   ```
   """
-  @spec set_dynamic(Socket.t(), attr, variant) :: Socket.t()
+  @spec set_dynamic(Socket.t(), placeholder, variant) :: Socket.t()
   def set_dynamic(socket, attr, variant),
     do: Head.push(socket, "link[rel*='icon']", :dynamic, attr, variant)
 
@@ -66,16 +67,16 @@ defmodule Phx.Live.Favicon do
     do: Head.reset(socket, "link[rel*='icon']", attr)
 
   @doc """
-   Backup an `attribute` from all favicon link element under `key`
+   Create a snapshot named `name` of an `attribute` from all favicon link element
   """
-  @spec backup_attr(Socket.t(), key, attr) :: map
-  def backup_attr(socket, key, attr), do: Head.backup(socket, "link[rel*='icon']", key, attr)
+  @spec snap_attr(Socket.t(), name, attr) :: map
+  def snap_attr(socket, name, attr), do: Head.snap(socket, "link[rel*='icon']", name, attr)
 
   @doc """
-   Restore an `attribute` backup under `key`
+   Restore an `attribute` from snapshot with named `name`
   """
-  @spec restore_attr(Socket.t(), key, attr) :: map
-  def restore_attr(socket, key, attr), do: Head.restore(socket, "link[rel*='icon']", key, attr)
+  @spec restore_attr(Socket.t(), name, attr) :: map
+  def restore_attr(socket, name, attr), do: Head.restore(socket, "link[rel*='icon']", name, attr)
 
   @doc """
   Set the `class` on all favicon link elements
@@ -112,14 +113,14 @@ defmodule Phx.Live.Favicon do
   def reset(socket), do: Head.reset(socket, "link[rel*='icon']")
 
   @doc """
-   Backup all favicon link element attribute values under `key`
+   Make a snapshot with name `name` of all favicon link element attribute values
   """
-  @spec backup(Socket.t(), key) :: map
-  def backup(socket, key), do: Head.backup(socket, "link[rel*='icon']", key)
+  @spec snap(Socket.t(), name) :: map
+  def snap(socket, name), do: Head.snap(socket, "link[rel*='icon']", name)
 
   @doc """
-    Restore backup under `key`
+    Restore snapshot with `name`
   """
-  @spec restore(Socket.t(), key) :: map
-  def restore(socket, key), do: Head.restore(socket, "link[rel*='icon']", key)
+  @spec restore(Socket.t(), name) :: map
+  def restore(socket, name), do: Head.restore(socket, "link[rel*='icon']", name)
 end

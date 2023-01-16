@@ -6,7 +6,7 @@ defmodule Phx.Live.Favicon.MixProject do
       name: "Phoenix Live Favicon",
       description: "Favicon manipulation for Phoenix Live Views",
       app: :phoenix_live_favicon,
-      version: "0.1.1",
+      version: "0.2.0-rc.0",
       package: package(),
       aliases: aliases(),
       elixir: "~> 1.10",
@@ -26,7 +26,7 @@ defmodule Phx.Live.Favicon.MixProject do
   defp deps(_) do
     [
       {:ex_doc, "~> 0.27", only: :dev, runtime: false},
-      {:phoenix_live_head, "~> 0.1.2"}
+      {:phoenix_live_head, "~> 0.2.0-rc.0"}
     ]
   end
 

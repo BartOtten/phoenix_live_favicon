@@ -12,6 +12,7 @@ defmodule Phx.Live.Favicon.MixProject do
       elixir: "~> 1.10",
       docs: docs(),
       deps: deps(Mix.env()),
+      source_url: "https://github.com/BartOtten/phoenix_live_favicon/",
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
         coveralls: :test,
@@ -33,8 +34,8 @@ defmodule Phx.Live.Favicon.MixProject do
   defp deps(_) do
     [
       {:phoenix_live_head, "~> 0.2.0"},
-      {:ex_doc, "~> 0.27", only: :dev, runtime: false},
-      {:makeup_diff, "~> 0.1.0", only: :dev},
+      {:ex_doc, "~> 0.27", only: [:dev, :test], runtime: false},
+      {:makeup_diff, "~> 0.1.0", only: [:dev, :test]},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.14", only: :test}
     ]

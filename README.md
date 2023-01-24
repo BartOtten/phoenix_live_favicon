@@ -1,3 +1,8 @@
+[![Build Status](https://github.com/BartOtten/phoenix_live_favicon/actions/workflows/elixir.yml/badge.svg?event=push)](https://github.com/BartOtten/phoenix_live_head/actions/workflows/elixir.yml)
+[![Last Updated](https://img.shields.io/github/last-commit/BartOtten/phoenix_live_favicon.svg)](https://github.com/BartOtten/phoenix_live_head/commits/main)
+[![Hex.pm](https://img.shields.io/hexpm/v/phoenix_live_favicon)](https://hex.pm/packages/phoenix_live_head)
+![Hex.pm](https://img.shields.io/hexpm/l/phoenix_live_favicon)
+
 # Phoenix Live Favicon
 
 ![Example](example.gif)
@@ -74,7 +79,7 @@ end
 ```
 
 To include the necessary client side Javascript, import the Javascript module 
-from dependency [Phoenix Live Head](https://github.com/BartOtten/phoenix_live_head) in `assets/js/app.js`
+from dependency [Phoenix Live Head](https://github.com/BartOtten/phoenix_live_favicon) in `assets/js/app.js`
 
 ```diff
 import "phoenix_html"
@@ -82,5 +87,5 @@ import "phoenix_html"
 import { Socket } from "phoenix"
 import { LiveSocket } from "../vendor/phoenix_live_view/"
 import topbar from "../vendor/topbar"
-+ import "phoenix_live_head"
++ import "phoenix_live_favicon"
 ```

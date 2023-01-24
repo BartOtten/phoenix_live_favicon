@@ -61,6 +61,7 @@ defmodule Phx.Live.Favicon.MixProject do
       api_reference: false,
       authors: ["Bart Otten"],
       main: "readme",
+      assets: "assets",
       extras: [
         "README.md",
         "GUIDES.md",
@@ -72,6 +73,6 @@ defmodule Phx.Live.Favicon.MixProject do
   end
 
   defp copy_images(_) do
-    File.cp_r("doc_assets", "doc")
+    File.cp_r("assets", "doc/assets")
   end
 end

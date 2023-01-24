@@ -1,11 +1,11 @@
-[![Build Status](https://github.com/BartOtten/phoenix_live_favicon/actions/workflows/elixir.yml/badge.svg?event=push)](https://github.com/BartOtten/phoenix_live_head/actions/workflows/elixir.yml)
-[![Last Updated](https://img.shields.io/github/last-commit/BartOtten/phoenix_live_favicon.svg)](https://github.com/BartOtten/phoenix_live_head/commits/main)
-[![Hex.pm](https://img.shields.io/hexpm/v/phoenix_live_favicon)](https://hex.pm/packages/phoenix_live_head)
+[![Build Status](https://github.com/BartOtten/phoenix_live_favicon/actions/workflows/elixir.yml/badge.svg?event=push)](https://github.com/BartOtten/phoenix_live_favicon/actions/workflows/elixir.yml)
+[![Last Updated](https://img.shields.io/github/last-commit/BartOtten/phoenix_live_favicon.svg)](https://github.com/BartOtten/phoenix_live_favicon/commits/main)
+[![Hex.pm](https://img.shields.io/hexpm/v/phoenix_live_favicon)](https://hex.pm/packages/phoenix_live_favicon)
 ![Hex.pm](https://img.shields.io/hexpm/l/phoenix_live_favicon)
 
 # Phoenix Live Favicon
 
-![Example](example.gif)
+![Example](assets/example.gif)
 
 A lib enabling dynamic favicons in Phoenix Live View applications.
 
@@ -57,7 +57,7 @@ See the [Guides page](https://hexdocs.pm/phoenix_live_favicon/guides.html) for c
 The [Example App](https://github.com/BartOtten/phoenix_live_favicon_example/) demonstrates various
 use cases and includes a 'debug frame' which shows the HTML of favicon head elements in real time.
 
-![Example App Preview](example_app_preview.jpeg)
+![Example App Preview](assets/example_app_preview.jpeg)
 
 To start this example:
 

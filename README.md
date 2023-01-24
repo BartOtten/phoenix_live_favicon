@@ -79,7 +79,7 @@ end
 ```
 
 To include the necessary client side Javascript, import the Javascript module 
-from dependency [Phoenix Live Head](https://github.com/BartOtten/phoenix_live_favicon) in `assets/js/app.js`
+from dependency [Phoenix Live Head](https://github.com/BartOtten/phoenix_live_head) in `assets/js/app.js`
 
 ```diff
 import "phoenix_html"
@@ -87,5 +87,5 @@ import "phoenix_html"
 import { Socket } from "phoenix"
 import { LiveSocket } from "../vendor/phoenix_live_view/"
 import topbar from "../vendor/topbar"
-+ import "phoenix_live_favicon"
++ import "phoenix_live_head"
 ```

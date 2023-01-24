@@ -25,13 +25,14 @@ defmodule Phx.Live.Favicon.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps(_) do
     [
+      {:phoenix_live_head, "~> 0.2.0-rc.0"},
       {:ex_doc, "~> 0.27", only: :dev, runtime: false},
-      {:phoenix_live_head, "~> 0.2.0-rc.0"}
+      {:makeup_diff, "~> 0.1.0", only: :dev}
     ]
   end
 
   defp aliases do
-    []
+    [docs: ["docs", &copy_images/1]]
   end
 
   defp package do
@@ -52,10 +53,15 @@ defmodule Phx.Live.Favicon.MixProject do
       main: "readme",
       extras: [
         "README.md",
+        "GUIDES.md",
         "CHANGELOG.md",
         "CONTRIBUTING.md": [filename: "contributing", title: "Contributing"],
         "LICENSE.md": [filename: "license", title: "License"]
       ]
     ]
+  end
+
+  defp copy_images(_) do
+    File.cp_r("doc_assets", "doc")
   end
 end

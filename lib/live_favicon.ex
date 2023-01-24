@@ -1,7 +1,4 @@
 defmodule Phx.Live.Favicon do
-  alias Phoenix.LiveView.Socket
-  alias Phx.Live.Head
-
   @moduledoc """
   Provides commands for manipulating the Favicon of Phoenix Live View applications
   while minimizing data over the wire.
@@ -13,6 +10,9 @@ defmodule Phx.Live.Favicon do
   The elements selected for manipulation are found by Javascript client code
   `document.querySelectorAll("link[rel*=icon]")`.
   """
+
+  alias Phoenix.LiveView.Socket
+  alias Phx.Live.Head
 
   @type attr :: Head.attr()
   @type value :: Head.value()

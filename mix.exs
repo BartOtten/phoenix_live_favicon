@@ -11,7 +11,14 @@ defmodule Phx.Live.Favicon.MixProject do
       aliases: aliases(),
       elixir: "~> 1.10",
       docs: docs(),
-      deps: deps(Mix.env())
+      deps: deps(Mix.env()),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -27,7 +34,9 @@ defmodule Phx.Live.Favicon.MixProject do
     [
       {:phoenix_live_head, "~> 0.2.0-rc.0"},
       {:ex_doc, "~> 0.27", only: :dev, runtime: false},
-      {:makeup_diff, "~> 0.1.0", only: :dev}
+      {:makeup_diff, "~> 0.1.0", only: :dev},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.14", only: :test}
     ]
   end
 

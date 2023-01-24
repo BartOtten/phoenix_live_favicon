@@ -1,7 +1,4 @@
 defmodule Phx.Live.Favicon do
-  alias Phoenix.LiveView.Socket
-  alias Phx.Live.Head
-
   @moduledoc """
   Provides commands for manipulating the Favicon of Phoenix Live View applications
   while minimizing data over the wire.
@@ -14,40 +11,46 @@ defmodule Phx.Live.Favicon do
   `document.querySelectorAll("link[rel*=icon]")`.
   """
 
-  @type attr :: atom() | binary()
-  @type variant :: binary
-  @type value :: binary
-  @type class_name :: binary
+  alias Phoenix.LiveView.Socket
+  alias Phx.Live.Head
+
+  @type attr :: Head.attr()
+  @type value :: Head.value()
+  @type class_name :: String.t()
+  @type name :: Head.name()
+  @type placeholder :: Head.name()
 
   @doc """
-  Set the value of the `{dynamic}` part of the `attribute` to `variant` on
-  all favicon link elements
+  Set the `value` of a `{placeholder}` on all favicon link elements
 
-  ## Dynamic attributes
+  ## Dynamic attributes / placeholders
 
-  To define a dynamic attribute, the element in the template must have a `data-dynamic-[attr]`
-  attribute with a value containing the placeholder notation `{dynamic}`.
+  To use a dynamic value for an attribute, the element must have an additional
+  `data-dynamic-[attribute]` attribute with a value containing a named
+  placeholder. For example: `{sub}` in attribute `href`.
 
   **Example**
   ```html
-  <link rel='icon' href="default_fav.png" data-dynamic-href="favs/{dynamic}/fav-16x16.png">
+    <!-- data-dynamic-href is set -->
+    <!-- {sub} is used in it's value -->
+  <link rel='icon' href="default_fav.png" data-dynamic-href="favs/{sub}/fav-16x16.png">
   ```
 
-  When an event is pushed with `set_dynamic(:href, "new_message")` the result wil look like:
+  When an event is pushed with `set_dynamic("sub", "new_message")` the result will be:
 
   ```html
   <link rel='icon' href="favs/new_message/fav-16x16.png">
   ```
   """
-  @spec set_dynamic(Socket.t(), attr, variant) :: Socket.t()
-  def set_dynamic(socket, attr, variant) when is_binary(variant),
-    do: Head.push(socket, "link[rel*='icon']", :dynamic, attr, variant)
+  @spec set_dynamic(Socket.t(), placeholder, value) :: Socket.t()
+  def set_dynamic(socket, placeholder, value),
+    do: Head.push(socket, "link[rel*='icon']", :dynamic, placeholder, value)
 
   @doc """
   Set a new `value` to the `attribute` on all favicon link elements
   """
   @spec set_attr(Socket.t(), attr, value) :: Socket.t()
-  def set_attr(socket, attr, value) when is_binary(value),
+  def set_attr(socket, attr, value),
     do: Head.push(socket, "link[rel*='icon']", :set, attr, value)
 
   @doc """
@@ -55,7 +58,7 @@ defmodule Phx.Live.Favicon do
   """
   @spec remove_attr(Socket.t(), attr) :: Socket.t()
   def remove_attr(socket, attr),
-    do: Head.push(socket, "link[rel*='icon']", :remove, attr, "r")
+    do: Head.push(socket, "link[rel*='icon']", :remove, attr)
 
   @doc """
   Reset an `attribute` to it's initial value on all favicon link elements
@@ -63,6 +66,18 @@ defmodule Phx.Live.Favicon do
   @spec reset_attr(Socket.t(), attr) :: Socket.t()
   def reset_attr(socket, attr),
     do: Head.reset(socket, "link[rel*='icon']", attr)
+
+  @doc """
+   Create a snapshot named `name` of an `attribute` from all favicon link element
+  """
+  @spec snap_attr(Socket.t(), name, attr) :: map
+  def snap_attr(socket, name, attr), do: Head.snap(socket, "link[rel*='icon']", name, attr)
+
+  @doc """
+   Restore an `attribute` from snapshot with named `name`
+  """
+  @spec restore_attr(Socket.t(), name, attr) :: map
+  def restore_attr(socket, name, attr), do: Head.restore(socket, "link[rel*='icon']", name, attr)
 
   @doc """
   Set the `class` on all favicon link elements
@@ -97,4 +112,16 @@ defmodule Phx.Live.Favicon do
   """
   @spec reset(Socket.t()) :: map
   def reset(socket), do: Head.reset(socket, "link[rel*='icon']")
+
+  @doc """
+   Make a snapshot with name `name` of all favicon link element attribute values
+  """
+  @spec snap(Socket.t(), name) :: map
+  def snap(socket, name), do: Head.snap(socket, "link[rel*='icon']", name)
+
+  @doc """
+    Restore snapshot with `name`
+  """
+  @spec restore(Socket.t(), name) :: map
+  def restore(socket, name), do: Head.restore(socket, "link[rel*='icon']", name)
 end

@@ -175,6 +175,7 @@ only one with a valid value.
 
 ### 4. Let the browser use the PNG
 To switch back to the PNG favicons set their `href` to a valid
-value.
+value. Have a look at `snap/3` and `restore/3` to make this process
+easier.
 
 

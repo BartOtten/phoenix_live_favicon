@@ -19,6 +19,10 @@ Using a dynamic favicon allows users to view a status without
 having the page in front.
 
 
+## Status
+Although updates may appear infrequent, the repository remains solid and fully operational.
+
+
 ## Basic Operations
 - set or remove any attribute
 - add a class name or remove a class name

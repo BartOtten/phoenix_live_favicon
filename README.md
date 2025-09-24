@@ -77,7 +77,7 @@ The package can be installed by adding `phoenix_live_favicon` to your list of de
 ```diff
 def deps do
   [
-+    {:phoenix_live_favicon, "~> 0.2.0"}
++    {:phoenix_live_favicon, "~> 1.0.0"}
   ]
 end
 ```
